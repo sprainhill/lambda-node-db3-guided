@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
-  db('users').where({ id })
+  Users.listUserById(id)
   .then(users => {
     const user = users[0];
 

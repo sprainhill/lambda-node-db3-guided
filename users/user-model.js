@@ -1,7 +1,8 @@
 const db = require('../data/db-config')
 
 module.exports = {
-    listUsers
+    listUsers,
+    listUserById
 }
 
 function listUsers() {
@@ -11,4 +12,9 @@ function listUsers() {
 
     // returns a promise
     return db('users');
+}
+
+function listUserById(id) {
+    // select * from users where id = id ??
+    return db('users').where({ id });
 }
