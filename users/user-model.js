@@ -16,5 +16,5 @@ function listUsers() {
 
 function listUserById(id) {
     // select * from users where id = id ??
-    return db('users').where({ id });
+    return db('users').where({ id }).first();
 }
