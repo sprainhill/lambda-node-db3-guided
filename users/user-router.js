@@ -1,11 +1,12 @@
 const express = require('express');
 
 const db = require('../data/db-config.js');
+const Users = require('./user-model');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  db('users')
+  Users.listUsers()
   .then(users => {
     res.json(users);
   })
