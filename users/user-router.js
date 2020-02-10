@@ -19,8 +19,7 @@ router.get('/:id', (req, res) => {
   const { id } = req.params;
 
   Users.listUserById(id)
-  .then(users => {
-    const user = users[0];
+  .then(user => {
 
     if (user) {
       res.json(user);
