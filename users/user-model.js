@@ -2,7 +2,8 @@ const db = require('../data/db-config')
 
 module.exports = {
     listUsers,
-    listUserById
+    listUserById,
+    postUser
 }
 
 function listUsers() {
@@ -17,4 +18,8 @@ function listUsers() {
 function listUserById(id) {
     // select * from users where id = id ??
     return db('users').where({ id }).first();
+}
+
+function postUser(userData) {
+    return db('users').insert(userData).then(ids => ids[0]);
 }
