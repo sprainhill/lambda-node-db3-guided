@@ -21,5 +21,7 @@ function listUserById(id) {
 }
 
 function postUser(userData) {
-    return db('users').insert(userData).then(ids => ids[0]);
+    return db('users').insert(userData).then(ids => {
+        return findById(ids[0])
+    });
 }
