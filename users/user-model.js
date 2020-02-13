@@ -21,7 +21,24 @@ function listUserById(id) {
 }
 
 function postUser(userData) {
-    return db('users').insert(userData).then(ids => {
-        return findById(ids[0])
+    console.log("in postUser")
+    return db('users').insert(userData).then(([id]) => {
+        return listUserById(id)
     });
 }
+
+function updateUser(userData) {
+
+    return db('users').update(userData).where(id, id).then(([id]) => {
+        return listUserById(id)
+    });
+}
+
+function deleteUser(userData) {
+
+    return db('users').delete().where(id, id).then(([id]) => {
+        return findById(id)
+    });
+}
+
+
