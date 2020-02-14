@@ -3,7 +3,8 @@ const db = require('../data/db-config')
 module.exports = {
     listUsers,
     listUserById,
-    postUser
+    postUser,
+    updateUser
 }
 
 function listUsers() {
@@ -27,9 +28,9 @@ function postUser(userData) {
     });
 }
 
-function updateUser(userData) {
-
-    return db('users').update(userData).where(id, id).then(([id]) => {
+function updateUser(changes) {
+    db('users').where({ id }).update(changes)
+    return db('users').where({id}).update(changes).then(([id]) => {
         return listUserById(id)
     });
 }
